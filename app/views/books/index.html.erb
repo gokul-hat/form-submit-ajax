@@ -1,7 +1,7 @@
 <h1>Books List</h1>
 <div class="col-lg-12 mt-5 mb-5">
-  <%= link_to 'New Book', new_book_path, class: 'btn btn-primary mb-3' %>
-  <table class="table table-bordered">
+  <%= link_to 'New Book', new_path, class: 'btn btn-primary mb-3' %>
+  <table class="table table-dark table-bordered">
     <thead>
       <tr>
         <th></th>
@@ -22,13 +22,12 @@
             </div>
           </td>
           
-          <td><%= book.titile %></td>
+          <td><%= book.title %></td>
           <td><%= book.price %></td>
           <td><%= book.author %></td>
           <td><%= book.genre %></td>
           <td>
-            <%= link_to 'Show', book_path(book), class: 'btn btn-info' %>
-            <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning' %>
+            <%= link_to 'Show', show_path(book.id), class: 'btn btn-info' %>
           </td>
         </tr>
       <% end %>

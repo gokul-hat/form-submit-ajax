@@ -8,10 +8,10 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(title: params[:title], price: params[:price], author: params[:author], genre: params[:genre])
 
     if @book.save
-      redirect_to books_path, notice: "Book created successfully."
+      redirect_to index_path, notice: "Book created successfully."
     else
       render :new
     end
@@ -45,6 +45,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:titile, :price, :author, :genre)
+    params.require(:book).permit(:title, :price, :author, :genre)
   end
 end

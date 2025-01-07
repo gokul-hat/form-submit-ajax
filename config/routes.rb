@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "books#index"
-  resources :books do
-    collection do
-      delete :bulk_delete_books
-    end
-  end
+  get "/books/new", to: "books#new", as: :new
+  post "create", to: "books#create", as: :create
+  get "books", to: "books#index", as: :index
+  get "show/:id", to: "books#show", as: :show
 end
